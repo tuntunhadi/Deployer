@@ -75,7 +75,7 @@ export class GitService {
       const status = await this.getStatus(dir);
       for (const [filepath, worktreeStatus] of status) {
         if (filepath === '.') continue;
-        if (worktreeStatus === 2) {
+        if (worktreeStatus !== 0) {
           await this.addFile(dir, filepath);
         }
       }
